@@ -90,4 +90,4 @@ DR은 가중치 기반 라우팅을 사용하여 서울 `Pod`들이 죽으면 `M
 - [React FE](https://github.com/cwave-druwa/oliveyoung-fe)
 - [BE deployment (K8S `yaml` 파일)](https://github.com/cwave-druwa/olive-young-server-deployment)
 - [Spring Boot Main BE](https://github.com/cwave-druwa/olive-young-BE-main)
-- [Spring Boot Sutter BE](https://github.com/cwave-druwa/olive-young-BE-shutter)
+- [Spring Boot Shutter BE](https://github.com/cwave-druwa/olive-young-BE-shutter)
