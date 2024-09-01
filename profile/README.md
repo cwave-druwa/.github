@@ -1,18 +1,22 @@
-# CloudWave 3기 5조 `올리브영` 사이트 인프라 구성하기
+# CloudWave 3기 5조 `올리브영` 사이트 인프라 구축하기
 
 <p align="center">
   <img src="../imgs/reward.jpeg" width="450px" alt="최종발표 최우수상(1위)">
 </p>
 <p align="center">
-  최종발표 최우수상(1위)
+  최종 발표 결과 최우수상(1위)
 </p>
 
-## 구성원
+# 구성원
+
+<div align="center">
 
 |  홍예슬 (PM)  |  우정인  |  유재균  |  한주호  |
 | :-----: | :-----: |  :-----: |  :-----: | 
 | <img src="https://avatars.githubusercontent.com/u/50395809?v=4" width=150px alt="홍예슬"> | <img src="https://avatars.githubusercontent.com/u/65027862?v=4" width=150px alt="우정인"> | <img src="https://avatars.githubusercontent.com/u/148213388?v=4" width=150px alt="유재균"> | <img src="https://avatars.githubusercontent.com/u/96062179?v=4" width=150px alt="한주호"> |
 |[@HongYeseul](https://github.com/HongYeseul)| [@wooji9](https://github.com/wooji9)| [@JaeGyun-Yoo](https://github.com/JaeGyun-Yoo) | [@sohyunsung](https://github.com/sohyunsung) |
+
+</div>
 
 # 전체 아키텍처
 
@@ -35,12 +39,12 @@
 </p>
 1. 오토 스케일링
 
-`Karpenter`와 `HPA`를 이용한 오토 스케일링을 하도록 했습니다. 없을 때와 비교하여 체감상 약 70%의 속도가 상승했습니다.
+`Karpenter`와 `HPA`를 이용한 오토 스케일링을 하도록 했습니다. 해당 툴을 사용하지 않았을 때와 비교하여 체감상 약 70%의 속도가 상승했습니다.
 
 </p>
 2. 보안 
 
-`K8S Controller`를 위해 `AWS SSM`을 통한 엔드포인트로 접속하도록 했고, `private`로 유지하기 위해 CI/CD 툴에 `VPN`을 사용한 접근만 허용하도록 했습니다.
+`K8S Controller`를 위해 `AWS SSM`을 통한 엔드포인트로 접속하도록 했으며, `private`로 유지하기 위해 관리용 툴에는`VPN`을 사용한 접근만 허용 했습니다.
 
 </p>
 3. QA
@@ -49,15 +53,15 @@
 
 ![QA](../imgs/QA.png)
 
-`AWS Device Farm`은 쉽게 말해 `AWS`에서 기기를 대여 해주는 서비스인데, 테스트를 지시하면 결과에 따라 자동으로 결과에 대한 영상을 생성 해줍니다. `QA Pod`에서 해당 검증을 통해 통과가 되면 `PROD Pod`로 배포되도록 설계하였습니다.
+`AWS Device Farm`은 쉽게 말해 `AWS`에서 기기를 대여 해주는 서비스로 테스트를 지시하면 `AWS` 스스로 테스트를 실행하며 결과에 대한 영상을 생성 해줍니다. `QA Pod`에서 해당 검증을 통과하면 `PROD Pod`로 배포되도록 설계하였습니다.
 
 
 
 ## 2. 배포계
 
-올리브영은 쇼핑몰로 모니터링이 중요합니다. 해당 클러스터에는 모니터링이 위치해 있습니다.
+해당 클러스터에는 모니터링이 위치해 있습니다.
 
-프로메테우스 및 그라파나, 로키를 사용해서 모니터링을 가능하도록 구성했고 서버에 장애가 발생할 때를 대비해 전화 알람 자동화 시스템을 구축했습니다.
+프로메테우스 및 그라파나, 로키를 사용해서 모니터링이 가능하도록 구성했으며 서버에 장애가 발생할 때를 대비한 전화 알람 자동화 시스템을 구축했습니다.
 
 </p>
 
