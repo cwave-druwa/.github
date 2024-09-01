@@ -1,1 +1,1 @@
-# .github
+`Github Organization`의 `README.md` 파일 추가를 위한 리포지토리입니다.
